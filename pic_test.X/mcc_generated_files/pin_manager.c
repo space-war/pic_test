@@ -68,7 +68,7 @@ void PIN_MANAGER_Initialize(void)
      ***************************************************************************/
     TRISA = 0x0197;
     TRISB = 0xFFFF;
-    TRISC = 0x03FF;
+    TRISC = 0x031F;
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
@@ -105,21 +105,21 @@ void PIN_MANAGER_Initialize(void)
     IEC1bits.CNIE = 1; // Enable CNI interrupt 
 }
 
-static int flag_led_ra10_on = 0;
+static int flag_led_ra9_on = 0;
 /* Interrupt service routine for the CNI interrupt. */
 void __attribute__ (( interrupt, no_auto_psv )) _CNInterrupt ( void )
 {
     if(IFS1bits.CNIF == 1)
     {
-        if (flag_led_ra10_on)
+        if (flag_led_ra9_on)
         {
-            IO_RA10_SetLow();
-            flag_led_ra10_on = 0;
+            IO_RA9_SetLow();
+            flag_led_ra9_on = 0;
         }
         else
         {
-            IO_RA10_SetHigh();
-            flag_led_ra10_on = 1;
+            IO_RA9_SetHigh();
+            flag_led_ra9_on = 1;
         }
 
         // Clear the flag

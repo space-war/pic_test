@@ -46,12 +46,16 @@
 #include "tmr1.h"
 #include "interrupt_manager.h"
 #include "traps.h"
+#include "tmr3.h"
+#include "tmr2.h"
 
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     INTERRUPT_Initialize();
+    TMR3_Initialize();
+    TMR2_Initialize();
     TMR1_Initialize();
 }
 

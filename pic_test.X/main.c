@@ -52,6 +52,9 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
 
+    IO_RC5_SetLow();
+    IO_RC6_SetLow();
+    IO_RC7_SetLow();
     while (1)
     {
         // Add your application code
